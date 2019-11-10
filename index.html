@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>学习笔记导航</title>
+    <style>
+        a {
+            display: block;
+            width: 300px;
+            height: 50px;
+            transform: translateX(0px);
+            transition: transform 500ms linear;
+            line-height: 50px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #3eede7;
+            border-radius: 10px;
+            color: #177cb0;
+        }
+        a:hover {
+            font-size: 20px;
+            color: #fff;
+            background: #177cb0;
+            transform: translateX(20px);
+            box-shadow: 5px 2px 2px #ffc773;
+        }
+    </style>
+</head>
+<body>
+    <!-- <a href="https://zhuanlan.zhihu.com/p/84612721" target="_blank">函数bind</a> -->
+    <div id="app"></div>
+    <script src="./notes.js"></script>
+    <script>
+        var app = document.getElementById('app');
+        // var h3 = document.createElement('h3');
+        // h3.innerText = "我是H3标签";
+        // app.appendChild(h3)
+        for(var i in notes) {
+            // console.log(notes[i].list)
+            // 标题
+            var h3 = document.createElement('h3');
+            h3.innerText = notes[i].name;
+            app.appendChild(h3)
+            // 内容
+            // var listName = document.createElement('a');
+            // var list = notes
+            for(var j in notes[i].list) {
+                // console.log(notes[i].list[j].listName)
+                var list = document.createElement('a');
+                var br = document.createElement('br')
+                list.innerText = notes[i].list[j].listName;
+                list.href = notes[i].list[j].listUrl;
+                list.target = "_black";
+                app.appendChild(list)
+                app.appendChild(br)
+            }
+            
+        }
+    </script>
+</body>
+</html>
